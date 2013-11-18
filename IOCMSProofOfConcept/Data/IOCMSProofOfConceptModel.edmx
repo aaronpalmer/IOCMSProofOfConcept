@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IOCMSProofOfConceptModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="IOCMSProofOfConceptModelStoreContainer" />
+        <Function Name="uspInitialClassifications_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspInitialClassifications_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspInitialClassifications_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspInitialClassifications_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspTempClassifications_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspTempClassifications_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspTempClassifications_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="uspTempClassifications_Update" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
+          <Parameter Name="Description" Type="varchar" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IOCMSProofOfConceptModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IOCMSProofOfConceptEntities" p1:LazyLoadingEnabled="true" >
+          <FunctionImport Name="uspInitialClassifications_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInitialClassifications_Get" EntitySet="InitialClassifications" ReturnType="Collection(IOCMSProofOfConceptModel.InitialClassification)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspInitialClassifications_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspInitialClassifications_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspTempClassifications_Delete">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspTempClassifications_Get" EntitySet="TempClassifications" ReturnType="Collection(IOCMSProofOfConceptModel.TempClassification)">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspTempClassifications_Insert" ReturnType="Collection(Decimal)">
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="uspTempClassifications_Update">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
+            <Parameter Name="Description" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="InitialClassifications" EntityType="IOCMSProofOfConceptModel.InitialClassification" />
+          <EntitySet Name="TempClassifications" EntityType="IOCMSProofOfConceptModel.TempClassification" />
+        </EntityContainer>
+        <EntityType Name="InitialClassification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="LastUpdatedDate" Nullable="true" />
+        </EntityType>
+        <EntityType Name="TempClassification">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="LastUpdatedDate" Nullable="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IOCMSProofOfConceptModelStoreContainer" CdmEntityContainer="IOCMSProofOfConceptEntities" >
+          <FunctionImportMapping FunctionImportName="uspInitialClassifications_Delete" FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Delete" />
+          <FunctionImportMapping FunctionImportName="uspInitialClassifications_Get" FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Get">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspInitialClassifications_Insert" FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Insert" />
+          <FunctionImportMapping FunctionImportName="uspInitialClassifications_Update" FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Update" />
+          <FunctionImportMapping FunctionImportName="uspTempClassifications_Delete" FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Delete" />
+          <FunctionImportMapping FunctionImportName="uspTempClassifications_Get" FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Get">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspTempClassifications_Insert" FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Insert" />
+          <FunctionImportMapping FunctionImportName="uspTempClassifications_Update" FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Update" />
+          <EntitySetMapping Name="InitialClassifications">
+            <EntityTypeMapping TypeName="IOCMSProofOfConceptModel.InitialClassification">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Insert">
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="Id" ColumnName="Id" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Update">
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="IOCMSProofOfConceptModel.Store.uspInitialClassifications_Delete">
+                  <ScalarProperty Name="Id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TempClassifications">
+            <EntityTypeMapping TypeName="IOCMSProofOfConceptModel.TempClassification">
+              <ModificationFunctionMapping>
+                <InsertFunction FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Insert">
+                  <ScalarProperty Name="Description" ParameterName="Description" />
+                  <ScalarProperty Name="Name" ParameterName="Name" />
+                  <ResultBinding Name="Id" ColumnName="Id" />
+                </InsertFunction>
+                <UpdateFunction FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Update">
+                  <ScalarProperty Name="Description" ParameterName="Description" Version="Current" />
+                  <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+                  <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+                </UpdateFunction>
+                <DeleteFunction FunctionName="IOCMSProofOfConceptModel.Store.uspTempClassifications_Delete">
+                  <ScalarProperty Name="Id" ParameterName="Id" />
+                </DeleteFunction>
+              </ModificationFunctionMapping>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
